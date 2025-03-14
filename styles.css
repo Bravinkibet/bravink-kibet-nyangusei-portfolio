@@ -1,146 +1,177 @@
-/* Reset and base styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Root Variables */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #00d4ff;
+  --background-color: #0f172a;
+  --text-color: #ffffff;
+  --accent-color: #ff9800;
+  --shadow-color: rgba(0, 123, 255, 0.5);
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-align: center;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-}
-
+/* Header */
 header {
-    background-color: #007BFF;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-bottom: 20px;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  box-shadow: 0 5px 15px var(--shadow-color);
+  border-radius: 10px;
+  transform: translateY(0);
+  animation: fadeIn 1s ease-in-out;
+  margin: auto;
 }
 
+/* 3D Text Effect */
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
 }
 
-header p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+/* Social Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
 }
 
-header a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 1.1rem;
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-header a:hover {
-    text-decoration: underline;
+.social-links a:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 0 25px var(--accent-color), 0 0 50px var(--primary-color);
 }
 
-.main-section {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Main Content */
+main {
+  width: 90%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transform: perspective(1000px) rotateX(5deg);
+  transition: transform 0.5s ease-in-out;
+  text-align: center;
 }
 
-.main-section h2 {
-    color: #007BFF;
-    font-size: 2rem;
-    margin-bottom: 10px;
+main:hover {
+  transform: perspective(1000px) rotateX(0deg);
 }
 
-.main-section p,
-.main-section ul {
-    font-size: 1.1rem;
-    line-height: 1.8;
+/* Sections */
+section {
+  margin-bottom: 30px;
+  padding: 15px;
+  border-left: 5px solid var(--primary-color);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideIn 1s forwards ease-in-out;
 }
 
-.main-section ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.main-section ul li {
-    padding: 5px 0;
-}
-
+/* Buttons */
 .button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    color: #fff;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  background: var(--primary-color);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  text-align: center;
 }
 
 .button:hover {
-    background-color: #0056b3;
+  background: var(--accent-color);
+  box-shadow: 0 8px 20px var(--primary-color);
+  transform: scale(1.05);
 }
 
+/* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    font-size: 0.9rem;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+  margin: auto;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    header {
-        padding: 15px 0;
-    }
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Removing numbering from ordered lists */
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    .main-section {
-        padding: 15px;
-    }
-
-    .main-section h2 {
-        font-size: 1.8rem;
-    }
-
-    .main-section p,
-    .main-section ul {
-        font-size: 1rem;
-    }
-
-    
-    .button {
-        font-size: 1rem;
-    }
+/* Ensures bullet points are also removed from unordered lists */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
